@@ -5,7 +5,7 @@
         <Navbar/>
   
         <h1 class="text-3xl font-bold underline">
-          Hello world! info hospital
+          Update
         </h1>
   
     | <Footer/>
