@@ -61,6 +61,7 @@
       </main>
 
         <Exito/>
+        <Error/>
 
   |   <Footer class="bottom-0"/>
 
@@ -72,6 +73,7 @@
   import Navbar from '@/components/Navbar.vue'
   import Footer from '@/components/Footer.vue'
   import Exito from '@/components/exitor.vue'
+  import Error from '@/components/regerror.vue'
 
   import axios from 'axios';
 
@@ -102,6 +104,8 @@
             this.$router.push({ name: 'Login' });
           }, 2000);
         } catch (error) {
+          // Emitir el evento de registro exitoso
+          this.$root.$emit('errorR');
           // Manejar el error de la solicitud POST si es necesario
           console.error('Error al registrar:', error.response.data);
         }
