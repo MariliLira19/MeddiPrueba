@@ -1,7 +1,7 @@
 <!-- Footer.vue -->
 
 <template>
-  <footer class="grid place-items-center bg-cyan-950 max-w-full shadow-md overflow-hidden pb-4 fixed bottom-0 w-full">
+  <footer class="grid place-items-center bg-cyan-950 max-w-full shadow-md overflow-hidden pb-4 bottom-0 w-full">
     <div class="max-w-screen-lg px-4">
       <div class="font-sans font-semibold text-white text-center text-xl py-3">
         © 2023 MEDDI - TEST BY MARILI LIRA ISLAS
