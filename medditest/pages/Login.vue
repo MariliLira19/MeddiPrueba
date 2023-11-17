@@ -6,9 +6,9 @@
               <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-96">
                 <h1 class="text-2xl font-bold mb-6">Inicio de Sesión</h1>
         
-                <form @submit.prevent="login">
+                <form @submit.prevent="Login">
                   <div class="mb-4">
-                    <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Correo Electrónico</label>
+                    <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Usuario</label>
                     <input type="email" id="email" v-model="email" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
         
@@ -30,6 +30,8 @@
                 </div>
               </div>
             </div>
+
+            <Incorrecto/>
         
         <Footer />
       
@@ -39,11 +41,14 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
+import Incorrecto from '@/components/incorrecto.vue'
+
 
 export default {
   components: {
     Navbar,
     Footer,
+    Incorrecto,
   },
   data() {
               return {
@@ -54,9 +59,12 @@ export default {
             methods: {
               login() {
                 // Lógica para manejar la autenticación aquí
-                console.log('Iniciar Sesión con:', this.email, this.password);
+                //console.log('Iniciar Sesión con:', this.email, this.password);
+                this.$router.push({ name: 'Info' });
               },
             },
+
+            
 }
 </script>
 

@@ -8,7 +8,7 @@
             <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-96">
               <h1 class="text-2xl font-bold mb-6">Registro</h1>
       
-              <form @submit.prevent="regist">
+              <form @submit.prevent="Login">
                 <div class="mb-4">
                   <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Increse su Correo Electrónico</label>
                   <input type="email" id="email"  class="w-full border-gray-300 rounded-md p-2" required>
@@ -52,7 +52,8 @@
               </form>
             </div>
           </div>
-  
+          
+          <Exito/>
 
     |   <Footer/>
   
@@ -63,17 +64,28 @@
   <script>
   import Navbar from '@/components/Navbar.vue'
   import Footer from '@/components/Footer.vue'
+  import Exito from '@/components/exitor.vue'; 
   
   export default {
     data() {
         return {
+        email: '',
+        password: '',
         selectedLada: '1', // Valor predeterminado de la lada
         phoneNumber: '',
         };
     },
+    methods: {
+              login() {
+                // Lógica para manejar la autenticación aquí
+                //console.log('Iniciar Sesión con:', this.email, this.password);
+                this.$router.push({ name: 'Login' });
+              },
+            },
     components: {
       Navbar,
       Footer,
+      Exito,
     },
   }
   </script>

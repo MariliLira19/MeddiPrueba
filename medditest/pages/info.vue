@@ -58,7 +58,7 @@
         </main>
           
   
-    | <Footer/>
+    | <Footer class="fixed bottom-0"/>
   
     </div>
     

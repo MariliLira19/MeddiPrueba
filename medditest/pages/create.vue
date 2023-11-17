@@ -76,6 +76,7 @@
         </div>
       </main>
 
+        <Agregar/>
   |   <Footer/>
 
   </div>
@@ -85,6 +86,7 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
+import Agregar from '@/components/agregar.vue'
 
 export default {
   data() {
@@ -96,6 +98,7 @@ export default {
   components: {
     Navbar,
     Footer,
+    Agregar,
   },
 }
 </script>
