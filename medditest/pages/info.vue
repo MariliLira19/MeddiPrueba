@@ -8,7 +8,15 @@
                     <h1 class="text-cyan-800 font-extrabold text-4xl mb-2 ">
                         Información General
                     </h1>
-                    <p class="mt-2 mb-2 font-sans font-light text-xl text-gray-500">Observe la Información general del hospital seleccionado</p>
+                    <p class="mt-2 mb-2 font-sans font-light text-xl text-gray-500">Observe la Información general del 
+                        hospital seleccionado</p>
+                        <div class="text-left mt-5 mb-5">            
+                            <router-link
+                              to="/lista"
+                              class="bg-cyan-700 text-white rounded-md px-4 py-2 hover:bg-cyan-800 focus:outline-none focus:ring focus:border-cyan-600 ">
+                              Volver a Listado
+                            </router-link>
+                        </div>
                 </div>
         
                 <div class="overflow-x-auto">

@@ -16,7 +16,7 @@
                 <div>
                   <div class="mb-4">
                     <label for="id" class="block text-gray-600 text-sm font-medium mb-2">ID</label>
-                    <input type="text" id="id" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="number" id="id" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
@@ -42,7 +42,7 @@
                       </select>
 
                       <input
-                        type="text"
+                        type="number"
                         id="phone"
                         v-model="phoneNumber"
                         class="flex-1 border-gray-300 rounded-r-md p-2"
@@ -61,7 +61,7 @@
 
                   <div class="mb-4">
                     <label for="employees" class="block text-gray-600 text-sm font-medium mb-2">No. Empleados</label>
-                    <input type="text" id="employees" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="number" id="employees" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
                 </div>
               </div>

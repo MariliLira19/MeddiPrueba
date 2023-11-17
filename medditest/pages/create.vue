@@ -10,7 +10,7 @@
           <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-[40rem]">
             <h1 class="text-2xl font-bold mb-6 text-center">Registro de Hospital</h1>
 
-            <form @submit.prevent="login">
+            <form @submit.prevent="create">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Columna Izquierda -->
                 <div>
@@ -68,7 +68,7 @@
 
               <div class="text-center">
                 <button type="submit" class="bg-cyan-700 text-white rounded-md px-4 py-2 hover:bg-cyan-800 focus:outline-none focus:ring focus:border-cyan-600">
-                  Registrarse
+                  Registrar
                 </button>
               </div>
             </form>
@@ -95,6 +95,20 @@ export default {
       phoneNumber: '',
       };
   },
+  methods: {
+    create() {
+      // Lógica para manejar la autenticación aquí
+      //console.log('Iniciar Sesión con:', this.email, this.password);
+                  
+      // Emitir el evento de registro exitoso
+      this.$root.$emit('agregarH');
+
+      setTimeout(() => {
+        this.$router.push({ name: 'Lista' });
+      }, 2000);
+                
+    },
+ },
   components: {
     Navbar,
     Footer,

@@ -16,7 +16,7 @@
     name: 'Actualizo',
     data() {
       return {
-        showPopup: true,
+        showPopup: false,
       };
     },
     methods: {
@@ -32,7 +32,7 @@
     },
     mounted() {
       // Llamada al método showSuccessPopup cuando sea necesario, por ejemplo, después de un registro exitoso
-      his.$root.$on('actualizadoE', this.showSuccessPopup);
+      this.$root.$on('actualizadoE', this.showSuccessPopup);
     },
   };
   </script>
