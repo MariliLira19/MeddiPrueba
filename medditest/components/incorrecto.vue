@@ -16,7 +16,7 @@
     name: 'Incorrecto',
     data() {
       return {
-        showPopup: true,
+        showPopup: false,
       };
     },
     methods: {
@@ -27,12 +27,12 @@
         // Ocultar el popup después de 8 segundos
         setTimeout(() => {
           this.showPopup = false;
-        }, 8000);
+        }, 3000);
       },
     },
     mounted() {
       // Llamada al método showSuccessPopup cuando sea necesario, por ejemplo, después de un registro exitoso
-      // this.showSuccessPopup();
+      this.$root.$on('errorS', this.showSuccessPopup);
     },
   };
   </script>
