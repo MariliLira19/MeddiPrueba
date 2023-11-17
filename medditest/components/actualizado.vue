@@ -1,7 +1,7 @@
 <template>
     <div>
       <!-- Contenedor del popup -->
-      <div v-if="showPopup" class="fixed bottom-0 right-2 mb-4 ml-4 bg-green-500 text-white px-4 py-2 rounded shadow">
+      <div v-if="showPopup" class="z-10 fixed bottom-0 right-2 mb-4 ml-4 bg-green-500 text-white px-4 py-2 rounded shadow">
         ¡Se actualizo correctamente la informaci&oacute;n!
       </div>
   

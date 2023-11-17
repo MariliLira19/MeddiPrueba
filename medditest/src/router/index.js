@@ -20,8 +20,8 @@ const routes = [
   },
   {
     path: '/info',
-    name: 'Info',
-    component: () => import(/* webpackChunkName: "Info" */ '~/pages/Info.vue'),
+    name: 'info',
+    component: () => import(/* webpackChunkName: "info" */ '~/pages/info.vue'),
   },
   {
     path: '/create',

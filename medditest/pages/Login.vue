@@ -31,9 +31,9 @@
               </div>
             </div>
 
-            <Incorrecto/>
+            <Incorrecto class=""/>
         
-        <Footer />
+        <Footer class=" bottom-0" />
       
     </div>
 </template>
@@ -60,7 +60,7 @@ export default {
               login() {
                 // Lógica para manejar la autenticación aquí
                 //console.log('Iniciar Sesión con:', this.email, this.password);
-                this.$router.push({ name: 'Info' });
+                this.$router.push({ name: 'info' });
               },
             },
 
