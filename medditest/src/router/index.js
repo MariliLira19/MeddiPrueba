@@ -1,6 +1,7 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
 
+
 const routes = [
   {
     path: '/',
@@ -19,18 +20,18 @@ const routes = [
   },
   {
     path: '/info',
-    name: 'Informacion',
-    component: () => import(/* webpackChunkName: "home" */ '~/pages/infohospital.vue'),
+    name: 'Info',
+    component: () => import(/* webpackChunkName: "Informacion" */ '~/pages/info.vue'),
   },
   {
     path: '/create',
-    name: 'Alta',
-    component: () => import(/* webpackChunkName: "home" */ '~/pages/altahospital.vue'),
+    name: 'Create',
+    component: () => import(/* webpackChunkName: "Create" */ '@/pages/create.vue'),
   },
   {
     path: '/update',
-    name: 'Editar',
-    component: () => import(/* webpackChunkName: "home" */ '~/pages/updatehospital.vue'),
+    name: 'Update',
+    component: () => import(/* webpackChunkName: "Update" */ '@/pages/update.vue'),
   },
   // ...otras rutas
 ];
