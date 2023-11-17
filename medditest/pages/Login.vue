@@ -6,15 +6,15 @@
               <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-96">
                 <h1 class="text-2xl font-bold mb-6">Inicio de Sesión</h1>
         
-                <form @submit.prevent="Login">
+                <form @submit.prevent="login">
                   <div class="mb-4">
                     <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Usuario</label>
-                    <input type="email" id="email" v-model="email" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="email" id="email" v-model="email" class="w-full border-gray-300 rounded-md p-2" placeholder="example@gmail.com" required>
                   </div>
         
                   <div class="mb-4">
                     <label for="password" class="block text-gray-600 text-sm font-medium mb-2">Contraseña</label>
-                    <input type="password" id="password" v-model="password" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="password" id="password" v-model="password" class="w-full border-gray-300 rounded-md p-2" placeholder="*****" required>
                   </div>
 
                   <div class="text-center">
@@ -56,7 +56,7 @@ export default {
               login() {
                 // Lógica para manejar la autenticación aquí
                 console.log('Iniciar Sesión con:', this.email, this.password);
-                this.$router.push({ name: 'Detalles' });
+                this.$router.push({ name: 'Lista' });
               },
             },
 

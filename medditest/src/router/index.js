@@ -19,9 +19,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "Registo" */ '~/pages/Registro.vue'),
   },
   {
-    path: '/detalles',
-    name: 'Detalles',
-    component: () => import(/* webpackChunkName: "Detalles" */ '~/pages/Detalles.vue'),
+    path: '/info',
+    name: 'Info',
+    component: () => import(/* webpackChunkName: "Info" */ '~/pages/info.vue'),
   },
   {
     path: '/create',
@@ -31,7 +31,12 @@ const routes = [
   {
     path: '/update',
     name: 'Update',
-    component: () => import(/* webpackChunkName: "Update" */ '@/pages/update.vue'),
+    component: () => import(/* webpackChunkName: "Update" */ '~/pages/Update.vue'),
+  },
+  {
+    path: '/lista',
+    name: 'Lista',
+    component: () => import(/* webpackChunkName: "Lista" */ '~/pages/Lista.vue'),
   },
   // ...otras rutas
 ];

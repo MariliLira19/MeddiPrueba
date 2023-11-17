@@ -71,7 +71,7 @@
         </main>
           
   
-    | <Footer/>
+    | <Footer class="bottom-0"/>
   
     </div>
     

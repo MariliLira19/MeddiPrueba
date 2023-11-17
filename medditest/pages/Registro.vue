@@ -8,15 +8,15 @@
             <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-96">
               <h1 class="text-2xl font-bold mb-6">Registro</h1>
       
-              <form @submit.prevent="Login">
+              <form @submit.prevent="regist">
                 <div class="mb-4">
                   <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Increse su Correo Electrónico</label>
-                  <input type="email" id="email"  class="w-full border-gray-300 rounded-md p-2" required>
+                  <input type="email" id="email"  class="w-full border-gray-300 rounded-md p-2"  placeholder="example@gmail.com" required>
                 </div>
       
                 <div class="mb-4">
                   <label for="password" class="block text-gray-600 text-sm font-medium mb-2">Ingrese su Contraseña</label>
-                  <input type="password" id="password"  class="w-full border-gray-300 rounded-md p-2" required>
+                  <input type="password" id="password"  class="w-full border-gray-300 rounded-md p-2" placeholder="*****"  required>
                 </div>
 
                 <div class="mb-4">
@@ -76,10 +76,17 @@
         };
     },
     methods: {
-              login() {
+              regist() {
                 // Lógica para manejar la autenticación aquí
                 //console.log('Iniciar Sesión con:', this.email, this.password);
-                this.$router.push({ name: 'Login' });
+                
+                // Emitir el evento de registro exitoso
+                this.$root.$emit('registroExitoso');
+
+                setTimeout(() => {
+                  this.$router.push({ name: 'Login' });
+                }, 2000);
+                
               },
             },
     components: {

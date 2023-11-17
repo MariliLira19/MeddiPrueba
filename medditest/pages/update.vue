@@ -10,7 +10,7 @@
           <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-[40rem]">
             <h1 class="text-2xl font-bold mb-6 text-center">Actualiza información</h1>
 
-            <form @submit.prevent="login">
+            <form @submit.prevent="update">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Columna Izquierda -->
                 <div>
@@ -94,10 +94,27 @@ export default {
       phoneNumber: '',
       };
   },
+  methods: {
+              update() {
+                // Lógica para manejar la autenticación aquí
+                //console.log('Iniciar Sesión con:', this.email, this.password);
+                
+                // Emitir el evento de registro exitoso
+                this.$root.$emit('actualizadoE');
+
+                setTimeout(() => {
+                  this.$router.push({ name: 'Info' });
+                }, 2000);
+                
+              },
+            },
   components: {
     Navbar,
     Footer,
     Actualiza,
   },
+
+  
+  
 }
 </script>
