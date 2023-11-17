@@ -11,12 +11,12 @@
               <form @submit.prevent="login">
                 <div class="mb-4">
                   <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Increse su Correo Electrónico</label>
-                  <input type="email" id="email" v-model="email" class="w-full border-gray-300 rounded-md p-2" required>
+                  <input type="email" id="email"  class="w-full border-gray-300 rounded-md p-2" required>
                 </div>
       
                 <div class="mb-4">
                   <label for="password" class="block text-gray-600 text-sm font-medium mb-2">Ingrese su Contraseña</label>
-                  <input type="password" id="password" v-model="password" class="w-full border-gray-300 rounded-md p-2" required>
+                  <input type="password" id="password"  class="w-full border-gray-300 rounded-md p-2" required>
                 </div>
 
                 <div class="mb-4">

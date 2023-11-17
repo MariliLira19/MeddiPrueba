@@ -4,11 +4,18 @@
         <Navbar/>
 
         <main class="m-10 mb-38">
-                <div class="mb-6 flex-nowrap">
+                <div class="mb-8 flex-nowrap">
                     <h1 class="text-cyan-800 font-extrabold text-4xl mb-2 ">
                         Listado de Hospitales
                     </h1>
-                    <p class="mt-2 mb-2 font-sans font-light text-xl text-gray-500">Observe el listado de hospitales existentes en México</p>
+                    <p class="mt-3 mb-3 font-sans font-light text-xl text-gray-500">Observe el listado de hospitales existentes en México</p>
+                    <div class="text-left mt-5 mb-5">            
+                        <router-link
+                          to="/create"
+                          class="bg-cyan-700 text-white rounded-md px-4 py-2 hover:bg-cyan-800 focus:outline-none focus:ring focus:border-cyan-600 ">
+                          Añadir Hospital
+                        </router-link>
+                      </div>
                 </div>
         
                 <div class="overflow-x-auto">
@@ -27,7 +34,11 @@
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Clinica 34</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Hidalgo</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                            <button class="text-blue-500">Información</button>
+                            <router-link
+                                to="/info"
+                                class="text-blue-500">
+                                    Informaci&oacute;n
+                            </router-link>
                         </td>
                         </tr>
                         <tr>
@@ -35,7 +46,11 @@
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Grey's Sloan Memorial</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Seattle Grace Mercy</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                            <button class="text-blue-500">Información</button>
+                            <router-link
+                                to="/info"
+                                class="text-blue-500">
+                                    Informaci&oacute;n
+                            </router-link>
                         </td>
                         </tr>
                         <tr>
@@ -43,7 +58,11 @@
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">Hospital St Bonaventure</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">California</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                                <button class="text-blue-500">Información</button>
+                                <router-link
+                                to="/info"
+                                class="text-blue-500">
+                                    Informaci&oacute;n
+                            </router-link>
                             </td>
                         </tr>
                     </tbody>

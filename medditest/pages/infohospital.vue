@@ -31,7 +31,11 @@
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">clinica34@org.com</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">300</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                            <button class="text-blue-500">Editar</button>
+                            <router-link
+                                to="/update"
+                                class="text-blue-500">
+                                    Editar
+                            </router-link>
                         </td>
                         </tr>
                         <tr>
@@ -41,7 +45,11 @@
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">greysloan@org.com</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">300</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                            <button class="text-blue-500">Editar</button>
+                            <router-link
+                                to="/update"
+                                class="text-blue-500">
+                                    Editar
+                            </router-link>
                         </td>
                         </tr>
                     </tbody>

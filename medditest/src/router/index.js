@@ -15,7 +15,22 @@ const routes = [
   {
     path: '/registro',
     name: 'Registro',
-    component: () => import(/* webpackChunkName: "login" */ '~/pages/Registro.vue'),
+    component: () => import(/* webpackChunkName: "Registo" */ '~/pages/Registro.vue'),
+  },
+  {
+    path: '/info',
+    name: 'Informacion',
+    component: () => import(/* webpackChunkName: "home" */ '~/pages/infohospital.vue'),
+  },
+  {
+    path: '/create',
+    name: 'Alta',
+    component: () => import(/* webpackChunkName: "home" */ '~/pages/altahospital.vue'),
+  },
+  {
+    path: '/update',
+    name: 'Editar',
+    component: () => import(/* webpackChunkName: "home" */ '~/pages/updatehospital.vue'),
   },
   // ...otras rutas
 ];
