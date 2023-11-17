@@ -19,6 +19,30 @@
                   <input type="password" id="password" v-model="password" class="w-full border-gray-300 rounded-md p-2" required>
                 </div>
 
+                <div class="mb-4">
+                    <label for="phone" class="block text-gray-600 text-sm font-medium mb-2">Ingrese su Número</label>
+                    <div class="flex">
+                      <!-- Selector de lada -->
+                      <select v-model="selectedLada" class="w-1/4 border-gray-300 rounded-l-md p-2">
+                        <option value="1">+1</option>
+                        <option value="52">+52</option>
+                        <!-- Agrega más opciones según sea necesario -->
+                      </select>
+                
+                      <!-- Campo de entrada para el número -->
+                      <input
+                        type="text"
+                        id="phone"
+                        v-model="phoneNumber"
+                        class="flex-1 border-gray-300 rounded-r-md p-2"
+                        placeholder="Número telefónico"
+                        maxlength="10"
+                        pattern="\d{10}"
+                        required
+                      />
+                    </div>
+                  </div>
+
                 <div class="text-center">
                   <button type="submit" class="bg-cyan-700 text-white rounded-md px-4 py-2 hover:bg-cyan-800 focus:outline-none focus:ring focus:border-cyan-600 ">
                       Registrarse
@@ -42,6 +66,12 @@
   import Footer from '@/components/Footer.vue'
   
   export default {
+    data() {
+        return {
+        selectedLada: '1', // Valor predeterminado de la lada
+        phoneNumber: '',
+        };
+    },
     components: {
       Navbar,
       Footer,

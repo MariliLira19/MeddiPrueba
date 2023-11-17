@@ -1,12 +1,54 @@
 <template>
     <div>
-         
-  
+        
         <Navbar/>
-  
-        <h1 class="text-3xl font-bold underline">
-          Hello world! info hospital
-        </h1>
+
+        <main class="m-10 mb-38 ">
+                <div class="mb-6 flex-nowrap">
+                    <h1 class="text-cyan-800 font-extrabold text-4xl mb-2 ">
+                        Información General
+                    </h1>
+                    <p class="mt-2 mb-2 font-sans font-light text-xl text-gray-500">Observe la Información general del hospital seleccionado</p>
+                </div>
+        
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-300 bg-slate-100 shadow-xl rounded-md">
+                    <thead>
+                        <tr>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Nombre Del Hospital</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Estado</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Teléfono</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Correo</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Empleados</th>
+                        <th class="px-6 py-3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Clinica 34</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Hidalgo</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">7751034875</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">clinica34@org.com</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">300</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+                            <button class="text-blue-500">Editar</button>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Grey's Sloan Memorial</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Seattle Grace Mercy</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">5503342444</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">greysloan@org.com</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">300</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+                            <button class="text-blue-500">Editar</button>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+        </main>
+          
   
     | <Footer/>
   
