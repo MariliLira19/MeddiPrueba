@@ -3,7 +3,7 @@
          
   
         <Navbar/>
-  
+    <main class="mt-10 mb-10">
         <div class="h-[73vh] flex items-center justify-center">
             <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-96">
               <h1 class="text-2xl font-bold mb-6">Registro</h1>
@@ -17,6 +17,11 @@
                 <div class="mb-4">
                   <label for="password" class="block text-gray-600 text-sm font-medium mb-2">Ingrese su Contraseña</label>
                   <input type="password" id="password"  class="w-full border-gray-300 rounded-md p-2" placeholder="*****"  required>
+                </div>
+
+                <div class="mb-4">
+                  <label for="name" class="block text-gray-600 text-sm font-medium mb-2">Nombre</label>
+                  <input type="text" id="name" class="w-full border-gray-300 rounded-md p-2" laceholder="name" required>
                 </div>
 
                 <div class="mb-4">
@@ -53,9 +58,11 @@
             </div>
           </div>
           
+        </main>
+
           <Exito/>
 
-    |   <Footer/>
+    |   <Footer class="bottom-0"/>
   
     </div>
     

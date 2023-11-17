@@ -14,10 +14,6 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Columna Izquierda -->
                 <div>
-                  <div class="mb-4">
-                    <label for="id" class="block text-gray-600 text-sm font-medium mb-2">ID</label>
-                    <input type="text" id="id" class="w-full border-gray-300 rounded-md p-2" required>
-                  </div>
 
                   <div class="mb-4">
                     <label for="name" class="block text-gray-600 text-sm font-medium mb-2">Nombre</label>
@@ -25,13 +21,10 @@
                   </div>
 
                   <div class="mb-4">
-                    <label for="state" class="block text-gray-600 text-sm font-medium mb-2">Estado</label>
-                    <input type="text" id="state" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="address" class="block text-gray-600 text-sm font-medium mb-2">Dirrección</label>
+                    <input type="text" id="address" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
-                </div>
 
-                <!-- Columna Derecha -->
-                <div>
                   <div class="mb-4">
                     <label for="phone" class="block text-gray-600 text-sm font-medium mb-2">Número telefónico</label>
                     <div class="flex">
@@ -55,13 +48,35 @@
                   </div>
 
                   <div class="mb-4">
-                    <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Correo Electrónico</label>
-                    <input type="email" id="email" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="horario" class="block text-gray-600 text-sm font-medium mb-2">Horario</label>
+                    <input type="text" id="horario" class="w-full border-gray-300 rounded-md p-2" required>
+                  </div>
+
+
+
+                </div>
+
+                <!-- Columna Derecha -->
+                <div>
+                  
+                  <div class="mb-4">
+                    <label for="maps" class="block text-gray-600 text-sm font-medium mb-2">Direccón Maps</label>
+                    <input type="text" id="maps" class="w-full border-gray-300 rounded-md p-2" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Longitud</label>
+                    <input type="number" id="long" class="w-full border-gray-300 rounded-md p-2" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
+                    <input type="number" id="lat" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
                     <label for="employees" class="block text-gray-600 text-sm font-medium mb-2">No. Empleados</label>
-                    <input type="text" id="employees" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="number" id="employees" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
                 </div>
               </div>

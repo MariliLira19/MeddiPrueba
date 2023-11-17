@@ -8,16 +8,12 @@
 
         <div class=" flex items-center justify-center">
           <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-[40rem]">
-            <h1 class="text-2xl font-bold mb-6 text-center">Actualiza información</h1>
+            <h1 class="text-2xl font-bold mb-6 text-center">Actualizar Hospital</h1>
 
             <form @submit.prevent="update">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Columna Izquierda -->
                 <div>
-                  <div class="mb-4">
-                    <label for="id" class="block text-gray-600 text-sm font-medium mb-2">ID</label>
-                    <input type="number" id="id" class="w-full border-gray-300 rounded-md p-2" required>
-                  </div>
 
                   <div class="mb-4">
                     <label for="name" class="block text-gray-600 text-sm font-medium mb-2">Nombre</label>
@@ -25,13 +21,10 @@
                   </div>
 
                   <div class="mb-4">
-                    <label for="state" class="block text-gray-600 text-sm font-medium mb-2">Estado</label>
-                    <input type="text" id="state" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="address" class="block text-gray-600 text-sm font-medium mb-2">Dirrección</label>
+                    <input type="text" id="address" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
-                </div>
 
-                <!-- Columna Derecha -->
-                <div>
                   <div class="mb-4">
                     <label for="phone" class="block text-gray-600 text-sm font-medium mb-2">Número telefónico</label>
                     <div class="flex">
@@ -42,7 +35,7 @@
                       </select>
 
                       <input
-                        type="number"
+                        type="text"
                         id="phone"
                         v-model="phoneNumber"
                         class="flex-1 border-gray-300 rounded-r-md p-2"
@@ -55,8 +48,30 @@
                   </div>
 
                   <div class="mb-4">
-                    <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Correo Electrónico</label>
-                    <input type="email" id="email" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="horario" class="block text-gray-600 text-sm font-medium mb-2">Horario</label>
+                    <input type="text" id="horario" class="w-full border-gray-300 rounded-md p-2" required>
+                  </div>
+
+
+
+                </div>
+
+                <!-- Columna Derecha -->
+                <div>
+                  
+                  <div class="mb-4">
+                    <label for="maps" class="block text-gray-600 text-sm font-medium mb-2">Direccón Maps</label>
+                    <input type="text" id="maps" class="w-full border-gray-300 rounded-md p-2" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Longitud</label>
+                    <input type="number" id="long" class="w-full border-gray-300 rounded-md p-2" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
+                    <input type="number" id="lat" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
@@ -68,13 +83,14 @@
 
               <div class="text-center">
                 <button type="submit" class="bg-cyan-700 text-white rounded-md px-4 py-2 hover:bg-cyan-800 focus:outline-none focus:ring focus:border-cyan-600">
-                  Actualizar
+                  Actualiza
                 </button>
               </div>
             </form>
           </div>
         </div>
       </main>
+
         <Actualiza/>
   |   <Footer/>
 

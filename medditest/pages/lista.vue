@@ -22,17 +22,17 @@
                     <table class="min-w-full divide-y divide-gray-300 bg-slate-100 shadow-xl rounded-md">
                     <thead>
                         <tr>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">No. Del Hospital</th>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Nombre Del Hospital</th>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Estado</th>
+                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Nombre Del Hospital</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Dirrección</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Telefono</th>
                         <th class="px-6 py-3"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">1</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Clinica 34</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Hidalgo</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">7751234356</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">
                             <router-link
                                 to="/info"
@@ -42,9 +42,9 @@
                         </td>
                         </tr>
                         <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">2</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Grey's Sloan Memorial</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Seattle Grace Mercy</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">Grey's Sloan Memorial</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">Seattle Grace Mercy</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">55678912y</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">
                             <router-link
                                 to="/info"
@@ -54,9 +54,9 @@
                         </td>
                         </tr>
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">3</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">Hospital St Bonaventure</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">California</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">45234235536</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">
                                 <router-link
                                 to="/info"

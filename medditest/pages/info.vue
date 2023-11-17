@@ -24,9 +24,12 @@
                     <thead>
                         <tr>
                         <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Nombre Del Hospital</th>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Estado</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Dirección</th>
                         <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Teléfono</th>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Correo</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Horario</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Url Google</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Longitud</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Latitud</th>
                         <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Empleados</th>
                         <th class="px-6 py-3"></th>
                         </tr>
@@ -36,7 +39,10 @@
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Clinica 34</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Hidalgo</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">7751034875</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">clinica34@org.com</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Lunes a Viernes</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">url</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">50</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">70</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">300</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">
                             <router-link
@@ -47,10 +53,13 @@
                         </td>
                         </tr>
                         <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Grey's Sloan Memorial</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Grey's Sloan </td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">Seattle Grace Mercy</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">5503342444</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">greysloan@org.com</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Lunes a Viernes</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">url</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">50</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">70</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">300</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500">
                             <router-link
