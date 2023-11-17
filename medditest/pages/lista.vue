@@ -29,48 +29,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Clinica 34</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">Hidalgo</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">7751234356</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                            <router-link
-                                to="/info"
-                                class="text-blue-500">
-                                    Informaci&oacute;n
-                            </router-link>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">Grey's Sloan Memorial</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">Seattle Grace Mercy</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">55678912y</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                            <router-link
-                                to="/info"
-                                class="text-blue-500">
-                                    Informaci&oacute;n
-                            </router-link>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">Hospital St Bonaventure</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">California</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">45234235536</td>
+
+                        <tr v-for="hospital in hospitals" :key="hospital.id">
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ hospital.name }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ hospital.address }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ hospital.phone }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                                <router-link
-                                to="/info"
-                                class="text-blue-500">
-                                    Informaci&oacute;n
-                            </router-link>
+                              <router-link :to="`/info/${hospital.id}`" class="text-blue-500">
+                                Información
+                              </router-link>
                             </td>
-                        </tr>
+                          </tr>
+                        
                     </tbody>
                     </table>
                 </div>
         </main>
           
-  
+        <Nodatos/>
     | <Footer class="bottom-0"/>
   
     </div>
@@ -78,13 +54,56 @@
   </template>
   
   <script>
-  import Navbar from '@/components/Navbar.vue'
-  import Footer from '@/components/Footer.vue'
-  
-  export default {
-    components: {
-      Navbar,
-      Footer,
+import Navbar from '@/components/Navbar.vue'
+import Footer from '@/components/Footer.vue'
+import Nodatos from '@/components/nodatos.vue'
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      hospitals: [], // Almacena los hospitales obtenidos de la API
+    };
+  },
+  mounted() {
+    // Llamar a la función que realiza la solicitud API al montar el componente
+    this.getHospitalData();
+  },
+  methods: {
+    async getHospitalData() {
+      try {
+        // Obtener el token de localStorage
+        const jwtToken = localStorage.getItem('jwtToken');
+
+        console.log(jwtToken); // Agregar esta línea para verificar el token
+
+        // Verificar si el token está presente
+        if (jwtToken) {
+          // Configurar los encabezados de la solicitud con el token
+          const headers = {
+            Authorization: `Bearer ${jwtToken}`,
+          };
+
+          // Realizar la solicitud API
+          const response = await axios.get('https://meddi-training.vercel.app/api/v1/hospital/get/all', { headers });
+
+          // Almacenar los datos en la propiedad hospitals del componente
+          this.hospitals = response.data;
+
+        } else {
+          // Manejar el caso en el que el token no esté presente (por ejemplo, redirigir a la página de inicio de sesión)
+          this.$router.push({ name: 'Login' });
+        }
+      } catch (error) {
+        // Manejar errores de la solicitud API
+        this.$root.$emit('noDatos');
+        console.error('Error al obtener datos del hospital:', error);
+      }
     },
-  }
-  </script>
+  },
+  components: {
+    Navbar,
+    Footer,
+  },
+};
+</script>

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "create",
+    "path": "/create",
+    "component": "C:\\\\Users\\\\52775\\\\Documents\\\\MeddiTest\\\\medditest\\\\pages\\\\create.vue",
+    "chunkName": "pages/create",
+    "_name": "_30ec2d46"
+  },
+  {
+    "name": "Info",
+    "path": "/Info",
+    "component": "C:\\\\Users\\\\52775\\\\Documents\\\\MeddiTest\\\\medditest\\\\pages\\\\Info.vue",
+    "chunkName": "pages/Info",
+    "_name": "_53cf466f"
+  },
+  {
+    "name": "Lista",
+    "path": "/Lista",
+    "component": "C:\\\\Users\\\\52775\\\\Documents\\\\MeddiTest\\\\medditest\\\\pages\\\\Lista.vue",
+    "chunkName": "pages/Lista",
+    "_name": "_d32fa8dc"
+  },
+  {
+    "name": "Login",
+    "path": "/Login",
+    "component": "C:\\\\Users\\\\52775\\\\Documents\\\\MeddiTest\\\\medditest\\\\pages\\\\Login.vue",
+    "chunkName": "pages/Login",
+    "_name": "_78d65478"
+  },
+  {
+    "name": "Registro",
+    "path": "/Registro",
+    "component": "C:\\\\Users\\\\52775\\\\Documents\\\\MeddiTest\\\\medditest\\\\pages\\\\Registro.vue",
+    "chunkName": "pages/Registro",
+    "_name": "_6bb4ea18"
+  },
+  {
+    "name": "Update",
+    "path": "/Update",
+    "component": "C:\\\\Users\\\\52775\\\\Documents\\\\MeddiTest\\\\medditest\\\\pages\\\\Update.vue",
+    "chunkName": "pages/Update",
+    "_name": "_09c8a26c"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\52775\\\\Documents\\\\MeddiTest\\\\medditest\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_37bc9181"
+  }
+]

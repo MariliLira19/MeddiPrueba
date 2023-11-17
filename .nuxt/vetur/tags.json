@@ -1,0 +1,29 @@
+{
+  "Actualizado": {
+    "description": "Auto imported from components/actualizado.vue"
+  },
+  "Agregar": {
+    "description": "Auto imported from components/agregar.vue"
+  },
+  "Correcto": {
+    "description": "Auto imported from components/correcto.vue"
+  },
+  "Exitor": {
+    "description": "Auto imported from components/exitor.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/footer.vue"
+  },
+  "Help": {
+    "description": "Auto imported from components/help.vue"
+  },
+  "Incorrecto": {
+    "description": "Auto imported from components/incorrecto.vue"
+  },
+  "Navbar": {
+    "description": "Auto imported from components/navbar.vue"
+  },
+  "Regerror": {
+    "description": "Auto imported from components/regerror.vue"
+  }
+}

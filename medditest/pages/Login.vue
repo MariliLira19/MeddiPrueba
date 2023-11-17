@@ -54,17 +54,26 @@ export default {
     async login() {
       try {
         const response = await axios.post('https://meddi-training.vercel.app/api/v1/user/login', {
-          username: this.email, // Cambiar a 'username' en lugar de 'email'
+          username: this.email, 
           password: this.password,
         });
 
-        // Lógica adicional si es necesario después de iniciar sesión
+        // Obtener el token JWT de la respuesta
+        const jwtToken = response.data.jwtToken;
+
+        console.log(response.data);
+
+        // Almacenar el token en localStorage
+        localStorage.setItem('jwtToken', jwtToken);
+        console.log('Token:',jwtToken); // Agregar esta línea para verificar el token
+
+        // muestra popup exitosos
         this.$root.$emit('logeoExitoso');
 
         // Redireccionar a la página de destino después de iniciar sesión
-        setTimeout(() => {
-          this.$router.push({ name: 'Lista' });
-        }, 2000);
+        //setTimeout(() => {
+          //this.$router.push({ name: 'Lista' });
+        //}, 2000);
 
       } catch (error) {
         // Manejar el error de inicio de sesión
