@@ -45,11 +45,7 @@ import Incorrecto from '@/components/incorrecto.vue'
 
 
 export default {
-  components: {
-    Navbar,
-    Footer,
-    Incorrecto,
-  },
+  
   data() {
               return {
                 email: '',
@@ -59,10 +55,16 @@ export default {
             methods: {
               login() {
                 // Lógica para manejar la autenticación aquí
-                //console.log('Iniciar Sesión con:', this.email, this.password);
-                this.$router.push({ name: 'info' });
+                console.log('Iniciar Sesión con:', this.email, this.password);
+                this.$router.push({ name: 'Detalles' });
               },
             },
+
+      components: {
+        Navbar,
+        Footer,
+        Incorrecto,
+      },
 
             
 }
