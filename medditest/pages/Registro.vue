@@ -8,7 +8,7 @@
             <div class="bg-gray-100 p-8 rounded shadow-md w-full sm:w-96">
               <h1 class="text-2xl font-bold mb-6">Registro</h1>
       
-              <form @submit.prevent="login">
+              <form @submit.prevent="regist">
                 <div class="mb-4">
                   <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Increse su Correo Electrónico</label>
                   <input type="email" id="email"  class="w-full border-gray-300 rounded-md p-2" required>
@@ -50,11 +50,10 @@
                 </div>
                 
               </form>
-      
-              
             </div>
           </div>
   
+
     |   <Footer/>
   
     </div>
