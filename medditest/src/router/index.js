@@ -1,5 +1,8 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
+import Vue from 'vue';
+
+Vue.use(VueRouter);
 
 
 const routes = [
@@ -11,7 +14,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '~/pages/Login.vue'),
+    component: () => import(/* webpackChunkName: "Login" */ '~/pages/Login.vue'),
   },
   {
     path: '/registro',
@@ -37,6 +40,8 @@ const routes = [
     path: '/lista',
     name: 'Lista',
     component: () => import(/* webpackChunkName: "Lista" */ '~/pages/Lista.vue'),
+    //component: Lista,
+    meta: { requiresAuth: true }, // Esta ruta requiere autenticación
   },
   // ...otras rutas
 ];
@@ -45,5 +50,34 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
+
+
+router.beforeEach((to, from, next) => {
+  // Verifica si la ruta requiere autenticación y si hay un token válido
+  if (to.matched.some(record => record.meta.requiresAuth) && !isTokenValid()) {
+    // Redirecciona a la página de inicio de sesión si no hay un token válido
+    next({ name: 'Lista' });
+  } else {
+    // Continúa la navegación
+    next();
+  }
+});
+
+// Función para verificar si el token es válido
+function isTokenValid() {
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    const decodedToken = parseJwt(token);
+    const expirationTime = decodedToken.exp * 1000; // en milisegundos
+
+    return Date.now() < expirationTime;
+  }
+
+  return false;
+}
+
+
 
 export default router;

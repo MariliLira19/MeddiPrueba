@@ -24,7 +24,7 @@
                         <tr>
                             <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Nombre Del Hospital</th>
                         <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Dirrección</th>
-                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Telefono</th>
+                        <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Teléfono</th>
                         <th class="px-6 py-3"></th>
                         </tr>
                     </thead>
