@@ -32,8 +32,8 @@
 
                         <tr v-for="hospital in hospitals" :key="hospital.id">
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ hospital.name }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ hospital.address }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ hospital.phone }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500 break-all" >{{ hospital.direccion }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ hospital.telefono }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">
                               <router-link :to="`/info/${hospital.id}`" class="text-blue-500">
                                 Información
@@ -88,7 +88,8 @@ export default {
           const response = await axios.get('https://meddi-training.vercel.app/api/v1/hospital/get/all', { headers });
 
           // Almacenar los datos en la propiedad hospitals del componente
-          this.hospitals = response.data;
+          this.hospitals = response.data.data.data;
+          
 
         } else {
           // Manejar el caso en el que el token no esté presente (por ejemplo, redirigir a la página de inicio de sesión)
