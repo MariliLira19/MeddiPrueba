@@ -63,13 +63,13 @@
                     <input type="text" id="maps" v-model="maps" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
                   <div class="mb-4">
-                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Activo</label>
-                    <input type="text" id="long" v-model="act" class="w-full border-gray-300 rounded-md p-2"  placeholder="True/false" required>
+                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Longitud</label>
+                    <input type="number" id="long" v-model="long" class="w-full border-gray-300 rounded-md p-2"   required>
                   </div>
 
                   <div class="mb-4">
-                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Municipio</label>
-                    <input type="text" id="lat" v-model="mun" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
+                    <input type="text" id="lat" v-model="lat" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                 
@@ -115,11 +115,9 @@ export default {
       phoneNumber: '',
       horario: '',
       maps: '',
-      act: '',
-      mun: '',
-      observaciones: '',
-      long: 0,
-      lat: 0,
+      long:'',
+      lat:'',
+      observaciones:'',
       hospitals:[],
     };
   },
@@ -158,8 +156,8 @@ export default {
               telefono: this.phoneNumber,
               horario: this.horario,
               urlGoogleMaps: this.maps,
-              enabled: this.act,
-              municipio: this.mun,
+              long: this.long,
+              lat: this.lat,
               observaciones: this.observaciones,
             
           }
@@ -212,8 +210,8 @@ export default {
             this.phoneNumber = hospitalData.telefono;
             this.horario = hospitalData.horario;
             this.maps = hospitalData.urlGoogleMaps;
-            this.act = hospitalData.enabled;
-            this.mun = hospitalData.municipio;
+            this.long = hospitalData.long;
+            this.lat = hospitalData.lat;
             this.observaciones = hospitalData.observaciones;
           }
         } else {
