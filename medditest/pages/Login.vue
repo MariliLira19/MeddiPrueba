@@ -58,22 +58,18 @@ export default {
           password: this.password,
         });
 
-        // Obtener el token JWT de la respuesta
-        const jwtToken = response.data.jwtToken;
-
-        console.log(response.data);
-
+        console.log(response.data)
         // Almacenar el token en localStorage
-        localStorage.setItem('jwtToken', jwtToken);
-        console.log('Token:',jwtToken); // Agregar esta línea para verificar el token
+        localStorage.setItem('jwtToken', response.data.data.jwtToken);
+        console.log('Token:',response.data.data.jwtToken); // Agregar esta línea para verificar el token
 
         // muestra popup exitosos
         this.$root.$emit('logeoExitoso');
 
         // Redireccionar a la página de destino después de iniciar sesión
-        //setTimeout(() => {
-          //this.$router.push({ name: 'Lista' });
-        //}, 2000);
+        setTimeout(() => {
+          this.$router.push({ name: 'Lista' });
+        }, 2000);
 
       } catch (error) {
         // Manejar el error de inicio de sesión
