@@ -70,8 +70,8 @@
                   </div>
 
                   <div class="mb-4">
-                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
-                    <input type="number" id="lat" v-model="lat" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Municipio</label>
+                    <input type="text" id="lat" v-model="muni" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
@@ -117,7 +117,7 @@ export default {
       horario: '',
       maps: '',
       long: '',
-      lat: '',
+      muni: '',
       observaciones: '',
     };
   },
@@ -135,7 +135,7 @@ export default {
             horario: this.horario,
             urlGoogleMaps: this.maps,
             long: this.long,
-            lat: this.lat,
+            municipio: this.muni,
             observaciones: this.observaciones,
           }, {
             // Configurar los encabezados de la solicitud con el token
