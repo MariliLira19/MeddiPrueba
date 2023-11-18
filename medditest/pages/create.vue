@@ -65,13 +65,13 @@
                   </div>
 
                   <div class="mb-4">
-                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Activo</label>
-                    <input type="text" id="long" v-model="act" class="w-full border-gray-300 rounded-md p-2"  placeholder="True/false" required>
+                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Longitud</label>
+                    <input type="number" id="long" v-model="long" class="w-full border-gray-300 rounded-md p-2"  placeholder="True/false" required>
                   </div>
 
                   <div class="mb-4">
-                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Municipio</label>
-                    <input type="text" id="lat" v-model="mun" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
+                    <input type="number" id="lat" v-model="lat" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
@@ -116,17 +116,16 @@ export default {
       phoneNumber: '',
       horario: '',
       maps: '',
-      act: '',
-      mun: '',
+      long: '',
+      lat: '',
       observaciones: '',
     };
   },
   methods: {
-    async create() {
+  async create() {
       try {
         // Obtener el token de localStorage
         const jwtToken = localStorage.getItem("jwtToken");
-
         // Verificar si el token está presente
         if (jwtToken) {
           const response = await axios.post('https://meddi-training.vercel.app/api/v1/hospital/create', {
@@ -135,8 +134,8 @@ export default {
             telefono: this.phoneNumber,
             horario: this.horario,
             urlGoogleMaps: this.maps,
-            enabled: this.act,
-            municipio: this.mun,
+            long: this.long,
+            lat: this.lat,
             observaciones: this.observaciones,
           }, {
             // Configurar los encabezados de la solicitud con el token
@@ -144,10 +143,8 @@ export default {
               Authorization: `Bearer ${jwtToken}`,
             },
           });
-
           // Emitir el evento de registro exitoso
           this.$root.$emit('agregarH');
-
           setTimeout(() => {
             this.$router.push({ name: 'Lista' });
           }, 2000);
@@ -160,8 +157,8 @@ export default {
         // Manejar el error de la solicitud POST si es necesario
         console.error('Error al registrar:', error.response.data);
       }
-    },
   },
+},
   components: {
     Navbar,
     Footer,
