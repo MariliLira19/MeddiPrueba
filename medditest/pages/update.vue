@@ -16,12 +16,12 @@
 
                   <div class="mb-4">
                     <label for="name" class="block text-gray-600 text-sm font-medium mb-2">Nombre</label>
-                    <input type="text" id="name" v-model="name" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="text" id="name" v-model="name" class="w-full border-gray-300 rounded-md p-2" >
                   </div>
 
                   <div class="mb-4">
                     <label for="address" class="block text-gray-600 text-sm font-medium mb-2">Dirrección</label>
-                    <input type="text" id="address" v-model="direccion" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="text" id="address" v-model="direccion" class="w-full border-gray-300 rounded-md p-2" >
                   </div>
 
                   <div class="mb-4">
@@ -30,7 +30,6 @@
                       <select v-model="selectedLada" class="w-1/4 border-gray-300 rounded-l-md p-2">
                         <option value="1">+1</option>
                         <option value="52">+52</option>
-                        <!-- Agrega más opciones según sea necesario -->
                       </select>
 
                       <input
@@ -41,14 +40,14 @@
                         placeholder="Número telefónico"
                         maxlength="10"
                         pattern="\d{10}"
-                        required
+                        
                       />
                     </div>
                   </div>
 
                   <div class="mb-4">
                     <label for="horario" class="block text-gray-600 text-sm font-medium mb-2">Horario</label>
-                    <input type="text" id="horario" v-model="horario" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="text" id="horario" v-model="horario" class="w-full border-gray-300 rounded-md p-2" >
                   </div>
 
 
@@ -60,22 +59,22 @@
                   
                   <div class="mb-4">
                     <label for="maps" class="block text-gray-600 text-sm font-medium mb-2">Dirección Maps</label>
-                    <input type="text" id="maps" v-model="maps" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="text" id="maps" v-model="maps" class="w-full border-gray-300 rounded-md p-2" >
                   </div>
                   <div class="mb-4">
                     <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Longitud</label>
-                    <input type="number" id="long" v-model="long" class="w-full border-gray-300 rounded-md p-2"   required>
+                    <input type="number" id="long" v-model="long" class="w-full border-gray-300 rounded-md p-2"   >
                   </div>
 
                   <div class="mb-4">
                     <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
-                    <input type="text" id="lat" v-model="lat" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="number" id="lat" v-model="lat" class="w-full border-gray-300 rounded-md p-2" >
                   </div>
 
                 
                   <div class="mb-4">
                     <label for="employees" class="block text-gray-600 text-sm font-medium mb-2">Observaciones</label>
-                    <input type="text" id="employees" v-model="observaciones" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="text" id="employees" v-model="observaciones" class="w-full border-gray-300 rounded-md p-2" >
                   </div>
                 </div>
               </div>
@@ -115,8 +114,8 @@ export default {
       phoneNumber: '',
       horario: '',
       maps: '',
-      long:'',
-      lat:'',
+      long:0,
+      lat:0,
       observaciones:'',
       hospitals:[],
     };
@@ -148,7 +147,7 @@ export default {
             hospital:{
 
               location: {
-              coordinates: [parseFloat(this.long), parseFloat(this.lat)],
+                coordinates: [parseFloat(this.long), parseFloat(this.lat)],
               },
                 
               name: this.name,
@@ -170,7 +169,7 @@ export default {
             this.$router.push({ name: 'Info' });
           }, 2000);
         } else {
-          // Manejar el caso en el que el token no esté presente (por ejemplo, redirigir a la página de inicio de sesión)
+          // Manejar el caso en el que el token no esté presente (Redirigir a la página de inicio de sesión)
           this.$router.push({ name: 'Login' });
         }
       } catch (error) {
@@ -199,9 +198,10 @@ export default {
           // Obtener el ID del hospital desde la ruta
           const hospitalId = this.$route.query.id;
 
+          console.log(response.data.data.data);
           // Filtrar la lista de hospitales para incluir solo el que tiene el ID correspondiente
           this.hospitals = response.data.data.data.filter(hospital => hospital._id === hospitalId);
-
+          
           // Llenar los campos del formulario con los datos obtenidos
           if (this.hospitals.length > 0) {
             const hospitalData = this.hospitals[0];

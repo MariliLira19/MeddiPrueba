@@ -8,7 +8,9 @@
                     <h1 class="text-cyan-800 font-extrabold text-4xl mb-2 ">
                         Listado de Hospitales
                     </h1>
-                    <p class="mt-3 mb-3 font-sans font-light text-xl text-gray-500">Observe el listado de hospitales existentes en México</p>
+                    <p class="mt-3 mb-3 font-sans font-light text-xl text-gray-500">Observe el listado de hospitales existentes en México, para más Información
+                      sobre un hospital de clic a <b>Información</b>
+                    </p>
                     <div class="text-left mt-5 mb-5">            
                         <router-link
                           to="/create"
@@ -43,6 +45,21 @@
                         
                     </tbody>
                     </table>
+
+                    <paginate
+                      :page-count="pageCount"
+                      :page-range="3"
+                      :margin-pages="1"
+                      :click-handler="goToPage"
+                      :prev-text="'Anterior'"
+                      :next-text="'Siguiente'"
+                      :container-class="'pagination'"
+                      :page-class="'page-item'"
+                      :prev-class="'page-item'"
+                      :next-class="'page-item'"
+                      :disabled-class="'disabled'"
+                    >
+                    </paginate>
                 </div>
         </main>
           
@@ -105,6 +122,7 @@ export default {
   components: {
     Navbar,
     Footer,
+    Nodatos,
   },
 };
 </script>
