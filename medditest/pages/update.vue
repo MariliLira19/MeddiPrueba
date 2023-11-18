@@ -81,7 +81,7 @@
 
               <div class="text-center">
                 <button type="submit" class="bg-cyan-700 text-white rounded-md px-4 py-2 hover:bg-cyan-800 focus:outline-none focus:ring focus:border-cyan-600">
-                  Actualiza
+                  Actualizar
                 </button>
               </div>
             </form>
