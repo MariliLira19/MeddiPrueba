@@ -22,7 +22,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "Registo" */ '~/pages/Registro.vue'),
   },
   {
-    path: '/info/:id',
+    path: '/info',
     name: 'Info',
     component: () => import(/* webpackChunkName: "Info" */ '~/pages/Info.vue'),
     meta: { requiresAuth: true },

@@ -1,7 +1,6 @@
 <template>
   <div>
        
-
       <Navbar/>
 
       <main class="mt-20 mb-20">
@@ -63,17 +62,17 @@
                     <label for="maps" class="block text-gray-600 text-sm font-medium mb-2">Dirección Maps</label>
                     <input type="text" id="maps" v-model="maps" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
-
                   <div class="mb-4">
-                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Longitud</label>
-                    <input type="number" id="long" v-model="long" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Activo</label>
+                    <input type="text" id="long" v-model="act" class="w-full border-gray-300 rounded-md p-2"  placeholder="True/false" required>
                   </div>
 
                   <div class="mb-4">
-                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
-                    <input type="number" id="lat" v-model="lat" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Municipio</label>
+                    <input type="text" id="lat" v-model="mun" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
+                
                   <div class="mb-4">
                     <label for="employees" class="block text-gray-600 text-sm font-medium mb-2">Observaciones</label>
                     <input type="text" id="employees" v-model="observaciones" class="w-full border-gray-300 rounded-md p-2" required>
@@ -109,56 +108,132 @@ import axios from 'axios';
 
 export default {
   data() {
-      return {
+    return {
       name: '',
       direccion: '',
-      selectedLada: '1', // Valor predeterminado de la lada
+      selectedLada: '1',
       phoneNumber: '',
       horario: '',
       maps: '',
-      cod: '',
-      municipio: '',
+      act: '',
+      mun: '',
       observaciones: '',
-      };
+      long: 0,
+      lat: 0,
+      hospitals:[],
+    };
   },
+
+  mounted() {
+    // Llamar a la función que realiza la solicitud API al montar el componente
+    this.getHospitalData();
+  },
+  
   methods: {
-    
     async update() {
-        try {
-          const response = await axios.post('https://meddi-training.vercel.app/api/v1/user/create', {
-            name: this.name,
-            direccion: this.direccion,
-            telefono: this.phoneNumber,
-            horario: this.horario,
-            urlGoogleMaps: this.maps,
-            estadoCode: this.cod,
-            municipio: this.municipio,
-            observaciones: this.observaciones,
+      try {
+        // Obtener el token de localStorage
+        const jwtToken = localStorage.getItem('jwtToken');
 
-          });
-                // Emitir el evento de registro exitoso
-                this.$root.$emit('actualizadoE');
+        // Obtener el ID del hospital desde la ruta
+        const hospitalId = this.$route.query.id;
 
-                setTimeout(() => {
-                  this.$router.push({ name: 'Info' });
-                }, 2000);
-              } catch (error) {
-              // Emitir el evento de registro exitoso
-              this.$root.$emit('errorR');
-              // Manejar el error de la solicitud POST si es necesario
-              console.error('Error al registrar:', error.response.data);
-            }
-          },
-              
-            },
+        // Verificar si el token está presente
+        if (jwtToken) {
+          // Configurar los encabezados de la solicitud con el token
+          const headers = {
+            Authorization: `Bearer ${jwtToken}`,
+          };
+
+          // Realizar la solicitud API
+          const response = await axios.post(`https://meddi-training.vercel.app/api/v1/hospital/update/${hospitalId}`, {
+            hospital:{
+
+              location: {
+              coordinates: [parseFloat(this.long), parseFloat(this.lat)],
+              },
+                
+              name: this.name,
+              direccion: this.direccion,
+              telefono: this.phoneNumber,
+              horario: this.horario,
+              urlGoogleMaps: this.maps,
+              enabled: this.act,
+              municipio: this.mun,
+              observaciones: this.observaciones,
+            
+          }
+          }, { headers });
+
+          // Emitir el evento de actualización exitosa
+          this.$root.$emit('actualizadoE');
+
+          setTimeout(() => {
+            this.$router.push({ name: 'Info' });
+          }, 2000);
+        } else {
+          // Manejar el caso en el que el token no esté presente (por ejemplo, redirigir a la página de inicio de sesión)
+          this.$router.push({ name: 'Login' });
+        }
+      } catch (error) {
+        // Emitir el evento de error en la actualización
+        this.$root.$emit('errorR');
+        // Manejar el error de la solicitud POST si es necesario
+        console.error('Error al actualizar:', error.response.data);
+      }
+    },
+
+    async getHospitalData() {
+      try {
+        // Obtener el token de localStorage
+        const jwtToken = localStorage.getItem('jwtToken');
+
+        // Verificar si el token está presente
+        if (jwtToken) {
+          // Configurar los encabezados de la solicitud con el token
+          const headers = {
+            Authorization: `Bearer ${jwtToken}`,
+          };
+
+          // Realizar la solicitud API para obtener los datos del hospital
+          const response = await axios.get('https://meddi-training.vercel.app/api/v1/hospital/get/all', { headers });
+
+          // Obtener el ID del hospital desde la ruta
+          const hospitalId = this.$route.query.id;
+
+          // Filtrar la lista de hospitales para incluir solo el que tiene el ID correspondiente
+          this.hospitals = response.data.data.data.filter(hospital => hospital._id === hospitalId);
+
+          // Llenar los campos del formulario con los datos obtenidos
+          if (this.hospitals.length > 0) {
+            const hospitalData = this.hospitals[0];
+            this.name = hospitalData.name;
+            this.direccion = hospitalData.direccion;
+            this.phoneNumber = hospitalData.telefono;
+            this.horario = hospitalData.horario;
+            this.maps = hospitalData.urlGoogleMaps;
+            this.act = hospitalData.enabled;
+            this.mun = hospitalData.municipio;
+            this.observaciones = hospitalData.observaciones;
+          }
+        } else {
+          // Manejar el caso en el que el token no esté presente
+          this.$router.push({ name: 'Login' });
+        }
+      } catch (error) {
+        // Manejar errores de la solicitud API
+        this.$root.$emit('noDatos');
+        console.error('Error al obtener datos del hospital:', error);
+      }
+    },
+    
+
+  },
   components: {
     Navbar,
     Footer,
     Actualiza,
     Error,
   },
-
-  
-  
 }
 </script>

@@ -65,13 +65,13 @@
                   </div>
 
                   <div class="mb-4">
-                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Longitud</label>
-                    <input type="number" id="long" v-model="long" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Activo</label>
+                    <input type="text" id="long" v-model="act" class="w-full border-gray-300 rounded-md p-2"  placeholder="True/false" required>
                   </div>
 
                   <div class="mb-4">
-                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
-                    <input type="number" id="lat" v-model="lat" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Municipio</label>
+                    <input type="text" id="lat" v-model="mun" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
@@ -116,8 +116,8 @@ export default {
       phoneNumber: '',
       horario: '',
       maps: '',
-      long: '',
-      lat: '',
+      act: '',
+      mun: '',
       observaciones: '',
     };
   },
@@ -135,8 +135,8 @@ export default {
             telefono: this.phoneNumber,
             horario: this.horario,
             urlGoogleMaps: this.maps,
-            long: this.long,
-            lat: this.lat,
+            enabled: this.act,
+            municipio: this.mun,
             observaciones: this.observaciones,
           }, {
             // Configurar los encabezados de la solicitud con el token

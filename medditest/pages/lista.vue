@@ -35,7 +35,7 @@
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500 break-all" >{{ hospital.direccion }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">{{ hospital.telefono }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-                              <router-link :to="`/info/${hospital._id}`" class="text-blue-500">
+                              <router-link :to="{ name: 'Info', query: { id: hospital._id } }" class="text-blue-500">
                                 Información
                               </router-link>
                             </td>
