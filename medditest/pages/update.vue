@@ -17,12 +17,12 @@
 
                   <div class="mb-4">
                     <label for="name" class="block text-gray-600 text-sm font-medium mb-2">Nombre</label>
-                    <input type="text" id="name" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="text" id="name" v-model="name" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
                     <label for="address" class="block text-gray-600 text-sm font-medium mb-2">Dirrección</label>
-                    <input type="text" id="address" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="text" id="address" v-model="direccion" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
@@ -49,7 +49,7 @@
 
                   <div class="mb-4">
                     <label for="horario" class="block text-gray-600 text-sm font-medium mb-2">Horario</label>
-                    <input type="text" id="horario" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="text" id="horario" v-model="horario" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
 
@@ -60,23 +60,23 @@
                 <div>
                   
                   <div class="mb-4">
-                    <label for="maps" class="block text-gray-600 text-sm font-medium mb-2">Direccón Maps</label>
-                    <input type="text" id="maps" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="maps" class="block text-gray-600 text-sm font-medium mb-2">Dirección Maps</label>
+                    <input type="text" id="maps" v-model="maps" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
                     <label for="long" class="block text-gray-600 text-sm font-medium mb-2">Longitud</label>
-                    <input type="number" id="long" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="number" id="long" v-model="long" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
                     <label for="lat" class="block text-gray-600 text-sm font-medium mb-2">Latitud</label>
-                    <input type="number" id="lat" class="w-full border-gray-300 rounded-md p-2" required>
+                    <input type="number" id="lat" v-model="lat" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
 
                   <div class="mb-4">
-                    <label for="employees" class="block text-gray-600 text-sm font-medium mb-2">No. Empleados</label>
-                    <input type="number" id="employees" class="w-full border-gray-300 rounded-md p-2" required>
+                    <label for="employees" class="block text-gray-600 text-sm font-medium mb-2">Observaciones</label>
+                    <input type="text" id="employees" v-model="observaciones" class="w-full border-gray-300 rounded-md p-2" required>
                   </div>
                 </div>
               </div>
@@ -92,6 +92,7 @@
       </main>
 
         <Actualiza/>
+        <Error/>
   |   <Footer/>
 
   </div>
@@ -102,32 +103,59 @@
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 import Actualiza from '@/components/actualizado.vue'
+import Error from '@/components/regerror.vue'
+
+import axios from 'axios';
 
 export default {
   data() {
       return {
+      name: '',
+      direccion: '',
       selectedLada: '1', // Valor predeterminado de la lada
       phoneNumber: '',
+      horario: '',
+      maps: '',
+      cod: '',
+      municipio: '',
+      observaciones: '',
       };
   },
   methods: {
-              update() {
-                // Lógica para manejar la autenticación aquí
-                //console.log('Iniciar Sesión con:', this.email, this.password);
-                
+    
+    async update() {
+        try {
+          const response = await axios.post('https://meddi-training.vercel.app/api/v1/user/create', {
+            name: this.name,
+            direccion: this.direccion,
+            telefono: this.phoneNumber,
+            horario: this.horario,
+            urlGoogleMaps: this.maps,
+            estadoCode: this.cod,
+            municipio: this.municipio,
+            observaciones: this.observaciones,
+
+          });
                 // Emitir el evento de registro exitoso
                 this.$root.$emit('actualizadoE');
 
                 setTimeout(() => {
                   this.$router.push({ name: 'Info' });
                 }, 2000);
-                
-              },
+              } catch (error) {
+              // Emitir el evento de registro exitoso
+              this.$root.$emit('errorR');
+              // Manejar el error de la solicitud POST si es necesario
+              console.error('Error al registrar:', error.response.data);
+            }
+          },
+              
             },
   components: {
     Navbar,
     Footer,
     Actualiza,
+    Error,
   },
 
   
