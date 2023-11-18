@@ -76,7 +76,7 @@
         </main>
           
         <Nodatos/>
-    | <Footer class="fixed bottom-0"/>
+    | <Footer class=" bottom-0"/>
   
     </div>
     
